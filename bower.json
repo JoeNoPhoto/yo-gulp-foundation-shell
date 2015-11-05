@@ -1,0 +1,14 @@
+{
+  "name": "yo-gulp-foundation-shell",
+  "private": true,
+  "dependencies": {
+    "foundation": "~5.2",
+    "modernizr": "~2.8.2",
+    "jquery": "~2.1.1",
+    "parallax": "~2.1.3"
+  },
+  "devDependencies": {
+    "chai": "~3.4.0",
+    "mocha": "~2.3.3",
+  }
+}
