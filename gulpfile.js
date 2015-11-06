@@ -1,10 +1,11 @@
 'use strict';
-// generated on 2015-11-03 using generator-gulp-foundation 0.0.3
+// generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
 
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var gutil = require('gulp-util');
+var mainBowerFiles = require('main-bower-files');
 
 // load plugins
 var $ = require('gulp-load-plugins')();
@@ -16,7 +17,7 @@ gulp.task('styles', function () {
         .pipe(gulp.dest('app/styles'))
         .pipe(reload({stream:true}))
         .pipe($.size())
-        .pipe($.notify("Compilation complete."));;
+        .pipe($.notify("Compilation complete."));
 });
 
 gulp.task('scripts', function () {
@@ -46,7 +47,6 @@ gulp.task('html', ['styles', 'scripts'], function () {
 
 gulp.task('svgstore', function () {
   var store = gulp.src('app/images/svg/*.svg')
-        .pipe($.filelog())
         .pipe($.svgmin())
         .pipe($.svgstore())
         .pipe($.rename({
@@ -70,11 +70,12 @@ gulp.task('images', function () {
 
 })
 
-gulp.task('fonts', function() {
+gulp.task('fonts', function () {
     var streamqueue = require('streamqueue');
     return streamqueue({objectMode: true},
-        $.bowerFiles(),
-        gulp.src('app/fonts/**/*')
+        gulp.src(mainBowerFiles()),
+        gulp.src('app/fonts/**/*'),
+        gulp.src('app/bower_components/foundation-icon-fonts/fonts/**/*')
     )
         .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
         .pipe($.flatten())
@@ -86,7 +87,7 @@ gulp.task('clean', function () {
     return gulp.src(['app/styles/main.css', 'dist'], { read: false }).pipe($.clean());
 });
 
-gulp.task('build', ['svgstore', 'html', 'images', 'fonts']);
+gulp.task('build', ['html', 'images', 'svgstore', 'fonts']);
 
 gulp.task('default', ['clean'], function () {
     gulp.start('build');
@@ -103,7 +104,7 @@ gulp.task('serve', ['styles'], function () {
         hostnameSuffix: ".xip.io"
     }, function (err, bs) {
         console.log('debug', bs.options.get('urls').get('locals'));
-
+        require('opn')(bs.options.get('urls').get('local'));
         console.log('Started connect web server on ' + bs.options.url);
     });
 });
@@ -119,8 +120,8 @@ gulp.task('wiredep', function () {
     gulp.src('app/*.html')
         .pipe(wiredep({
             directory: 'app/bower_components',
-            exclude: ['bootstrap-sass-official']
         }))
+        .pipe($.filelog())
         .pipe(gulp.dest('app'));
 });
 
