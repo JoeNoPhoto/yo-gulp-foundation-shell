@@ -5,9 +5,10 @@
     "foundation": "~5.2",
     "modernizr": "~2.8.2",
     "jquery": "~2.1.1",
-    "hammerjs": "~2.0.4",
+    "parallax": "~2.1.3",
+    "underscore": "~1.8.3",
     "jquery-hammerjs": "~2.0.0",
-    "underscore": "~1.8.3"
+    "svg4everybody": "~2.0.0"
   },
   "devDependencies": {
     "chai": "~3.4.0",

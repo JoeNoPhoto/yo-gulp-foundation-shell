@@ -22,7 +22,9 @@
     <!-- endbuild -->
 </head>
 <body>
-
+  <svg role="img" title="frame"><use xlink:href="spritemap.svg#logo-frame"></use></svg>
+  <svg role="img" title="joe"><use xlink:href="spritemap.svg#logo-joe"></use></svg>
+  <svg role="img" title="norris"><use xlink:href="spritemap.svg#logo-norris"></use></svg>
   <div id="container" class="wrapper">
   <ul id="scene" class="scene unselectable" data-scalar-x="10" data-scalar-y="10" data-mode="cursor">
         <li class="layer" date-depth="0.0"></li>
@@ -90,15 +92,6 @@
                             <li class="name">
                                 <h1><a href="#">yo gulp foundation shell</a></h1>
                             </li>
-                            <svg class="joeno-logo" data-frame version="1.1" viewbox="0 0 620.656 461.379" x="0px" y="0px">
-          <symbol id="logo-frame"><path d="M521.697,410.345H97.994c-25.525,0-46.409-20.884-46.409-46.409V96.97c0-25.525,20.884-46.409,46.409-46.409h423.704c25.525,0,46.409,20.884,46.409,46.409v266.966C568.106,389.461,547.222,410.345,521.697,410.345z" fill="none" stroke-miterlimit="10" stroke-width="36"/>
-          </symbol>
-          <symbol id="logo-joe"><text font-family="'Cubano-Regular'" font-size="266.1475px" transform="matrix(1 0 0 1 84.2884 266.4917)">Joe</text></symbol>
-          <symbol id="logo-norris"><text font-family="'Cubano-Regular'" font-size="138.9142px" transform="matrix(1 0 0 1 84.6702 383.3969)">Norris</text></symbol>
-        </svg>
-                            <img src="images/logo-frame.svg" alt="">
-                            <img src="images/logo-joe.svg" alt="">
-                            <img src="images/logo-norris.svg" alt="">
                             <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
                             <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
                         </ul>
@@ -152,10 +145,16 @@
                 <!-- build:js scripts/vendor.js -->
                 <!-- bower:js -->
                 <script src="bower_components/jquery/dist/jquery.js"></script>
+                <script src="bower_components/svg4everybody/dist/svg4everybody.min.js" charset="utf-8"></script>
                 <script src="bower_components/fastclick/lib/fastclick.js"></script>
                 <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
                 <script src="bower_components/jquery-placeholder/jquery.placeholder.js"></script>
                 <script src="bower_components/foundation/js/foundation.js"></script>
+                <script src="bower_components/hammerjs/hammer.min.js"></script>
+                <script src="bower_components/jquery-hammerjs/jquery.hammer.js"></script>
+                <script src="bower_components/jquery-hammerjs/jquery.hammer.js"></script>
+                <script src="bower_components/underscore/underscore-min.js"></script>
+                <script src="bower_components/parallax/deploy/parallax.min.js"></script>
                 <!-- endbower -->
                 <!-- endbuild -->
 
