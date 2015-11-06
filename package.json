@@ -5,7 +5,6 @@
     "browser-sync": "~2.7.1",
     "gulp": "^3.6.2",
     "gulp-autoprefixer": "~3.0.0",
-    "gulp-bower-files": "^0.2.7",
     "gulp-cache": "^0.4.0",
     "gulp-clean": "^0.3.1",
     "gulp-csso": "^0.2.8",
@@ -26,10 +25,11 @@
     "gulp-useref": "^0.4.3",
     "gulp-util": "^2.2.14",
     "jshint-stylish": "^0.2.0",
+    "main-bower-files": "^2.9.0",
     "opn": "^0.1.2",
     "streamqueue": "^0.1.0",
     "svg4everybody": "^2.0.0",
-    "wiredep": "^1.7.0"
+    "wiredep": "^2.2.2"
   },
   "engines": {
     "node": ">=0.10.0"
