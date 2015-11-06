@@ -1,0 +1,176 @@
+.board {
+  background-size: cover;
+  height: 28vw;
+  width: 26vh;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -10px;
+  left: -30px; }
+  .board.joe {
+    background-image: url(../images/logo-joe.svg); }
+  .board.norris {
+    background-image: url(../images/logo-norris.svg); }
+  .board.frame {
+    background-image: url(../images/logo-frame.svg); }
+  .board.full {
+    background-image: url(../img/logo-full.svg); }
+
+.frame {
+  -webkit-mask: url(../images/logo-frame.svg);
+          mask: url(../images/logo-frame.svg);
+  -webkit-mask-size: cover;
+          mask-size: cover;
+  background-color: #ffe11f; }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  line-height: 1.4em;
+  background-color: white;
+  text-align: center;
+  color: white; }
+
+svg {
+  fill: #ffe11f; }
+
+.accelerate {
+  transform: translate3d(0, 0, 0);
+  transform-style: preserve-3d;
+  backface-visibility: hidden; }
+
+.center {
+  max-width: 400px;
+  margin: 0 auto;
+  width: 88%; }
+
+.wrapper {
+  min-height: 460px;
+  position: absolute;
+  overflow: hidden;
+  display: table;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0; }
+
+.title {
+  font-size: 3em;
+  text-shadow: 0 8px 6px rgba(0, 0, 0, 0.6);
+  margin-top: -0.7em;
+  position: absolute;
+  width: 100%;
+  top: 42%; }
+
+.hanger {
+  transform-origin: 0% 0%;
+  position: absolute; }
+
+.hanger.position-frame {
+  top: 4%;
+  left: 10%; }
+
+.hanger.position-joe {
+  top: 4%;
+  left: 10%; }
+
+.hanger.position-norris {
+  top: 4%;
+  left: 10%; }
+
+.hanger.position-full {
+  top: 4%;
+  left: 10%; }
+
+.hanger.position-me {
+  top: 69.5%;
+  left: 50%; }
+
+.hanger.position-6 {
+  top: 66.5%;
+  left: 60%; }
+
+.hanger.position-7 {
+  top: 59%;
+  left: 70%; }
+
+.hanger.position-8 {
+  top: 46%;
+  left: 80%; }
+
+.board {
+  background-size: cover;
+  height: 28vw;
+  width: 26vh;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -10px;
+  left: -30px; }
+  .board.joe {
+    background-image: url(../images/logo-joe.svg); }
+  .board.norris {
+    background-image: url(../images/logo-norris.svg); }
+  .board.frame {
+    background-image: url(../images/logo-frame.svg); }
+  .board.full {
+    background-image: url(../img/logo-full.svg); }
+
+.scene,
+.layer {
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0; }
+
+.scene {
+  min-height: 460px;
+  position: relative;
+  overflow: hidden; }
+
+.layer {
+  position: absolute; }
+
+.layer div {
+  transform: translate3d(0, 0, 0);
+  transform-style: preserve-3d;
+  backface-visibility: hidden; }
+
+.background {
+  background: url(../images/waves.jpg) no-repeat 50% 100%;
+  bottom: 0;
+  background-size: cover;
+  position: absolute;
+  width: 110%;
+  left: -5%;
+  top: -5%; }
+
+.hanger {
+  transform-origin: 0 0;
+  position: absolute; }
+  .hanger .position-frame {
+    top: 5%;
+    left: 50%; }
+  .hanger .position-joe {
+    top: 5%;
+    left: 50%; }
+  .hanger .position-norris {
+    top: 5%;
+    left: 50%; }
+  .hanger .position-web {
+    top: 5%;
+    left: 50%; }
+  .hanger .position-graphic {
+    top: 5%;
+    left: 50%; }
+  .hanger .position-photo {
+    top: 5%;
+    left: 50%; }
+  .hanger .position-contact {
+    top: 5%;
+    left: 50%; }
+  .hanger .position-me {
+    top: 4%;
+    left: 50%; }
+  .hanger .position-hireme {
+    top: 4%;
+    left: 50%; }

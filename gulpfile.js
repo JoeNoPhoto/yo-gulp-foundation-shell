@@ -44,8 +44,21 @@ gulp.task('html', ['styles', 'scripts'], function () {
         .pipe($.size());
 });
 
+gulp.task('svgstore', function () {
+  var store = gulp.src('app/images/svg/*.svg')
+        .pipe($.filelog())
+        .pipe($.svgmin())
+        .pipe($.svgstore())
+        .pipe($.rename({
+            basename: 'sprite'
+        }))
+        .pipe(gulp.dest('app/images'));
+  return store;
+});
+
+
 gulp.task('images', function () {
-    return gulp.src('app/images/**/*')
+    return gulp.src(['app/images/*', '!app/images/{svg,svg/**}'])
         .pipe($.cache($.imagemin({
             optimizationLevel: 3,
             progressive: true,
@@ -54,9 +67,10 @@ gulp.task('images', function () {
         .pipe(gulp.dest('dist/images'))
         .pipe(reload({stream:true, once:true}))
         .pipe($.size());
-});
 
-gulp.task('fonts', function () {
+})
+
+gulp.task('fonts', function() {
     var streamqueue = require('streamqueue');
     return streamqueue({objectMode: true},
         $.bowerFiles(),
@@ -72,7 +86,7 @@ gulp.task('clean', function () {
     return gulp.src(['app/styles/main.css', 'dist'], { read: false }).pipe($.clean());
 });
 
-gulp.task('build', ['html', 'images', 'fonts']);
+gulp.task('build', ['svgstore', 'html', 'images', 'fonts']);
 
 gulp.task('default', ['clean'], function () {
     gulp.start('build');
@@ -88,8 +102,7 @@ gulp.task('serve', ['styles'], function () {
         open: false,
         hostnameSuffix: ".xip.io"
     }, function (err, bs) {
-        require('opn')(bs.options.get('urls').get('local'));
-        console.log('debug', bs.options.get('urls'));
+        console.log('debug', bs.options.get('urls').get('locals'));
 
         console.log('Started connect web server on ' + bs.options.url);
     });
@@ -118,6 +131,6 @@ gulp.task('watch', ['serve'], function () {
 
     gulp.watch('app/styles/**/*.scss', ['styles']);
     gulp.watch('app/scripts/**/*.js', ['scripts']);
-    gulp.watch('app/images/**/*', ['images']);
+    gulp.watch(['app/images/**/*', '!app/images/{svg,svg/**}'], ['images']);
     gulp.watch('bower.json', ['wiredep']);
 });
